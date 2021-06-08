@@ -1,0 +1,31 @@
+{
+  "name": "fireflies",
+  "version": "1.0.0",
+  "description": "web experiment using web audio API and webGL",
+  "repository": "git@github.com:JeremieDrazic/Fireflies.git",
+  "author": "<jerem.drazic@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=15.0.0",
+    "npm": ">=7.0.0"
+  },
+  "keywords": [
+    "esbuild",
+    "pixijs",
+    "webGL",
+    "typescript"
+  ],
+  "scripts": {
+    "start": "vite",
+    "build": "tsc && vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "gsap": "^3.6.1",
+    "pixi.js": "^6.0.4"
+  },
+  "devDependencies": {
+    "typescript": "^4.2.3",
+    "vite": "^2.3.5"
+  }
+}
