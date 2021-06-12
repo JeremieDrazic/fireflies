@@ -19,7 +19,7 @@
     "start": "vite",
     "build": "tsc && vite build",
     "serve": "vite preview",
-    "prepare": "husky install"
+    "lint": "eslint ./src --cache --fix"
   },
   "dependencies": {
     "gsap": "^3.6.1",
