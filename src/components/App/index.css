@@ -1,0 +1,25 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+#app {
+  position: relative;
+
+  width: 100vw;
+  height: 100vh;
+
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  color: var(--primary-light);
+
+  overflow: hidden;
+
+  background-color: var(--primary);
+}
+
+::selection {
+  color: var(--primary);
+  background-color: var(--secondary);
+}

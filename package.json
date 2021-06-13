@@ -22,6 +22,7 @@
     "lint": "eslint ./src --cache --fix"
   },
   "dependencies": {
+    "@types/node": "^15.12.2",
     "gsap": "^3.6.1",
     "pixi.js": "^6.0.4",
     "stylus": "^0.54.8"

@@ -1,8 +1,10 @@
-import './styles/style.css'
+import App from '@components/App'
+import '@styles/reset.css'
+import '@styles/theme.css'
 
-const app = document.querySelector<HTMLDivElement>('#app')!
+const init = () => {
+  const app = new App(document.querySelector('#app'))
+  app.start()
+}
 
-app.innerHTML = `
-  <h1>Hello Vite!</h1>
-  <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
-`
+window.onload = init

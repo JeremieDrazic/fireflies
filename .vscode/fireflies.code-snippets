@@ -1,0 +1,19 @@
+{
+  "Create class": {
+    "scope": "typescript",
+    "prefix": "comp",
+    "description": "Create a class for fireflies project with type definition",
+    "body": [
+      "import './index.css'",
+      "",
+      "class ${1:ComponentName} {",
+      "  constructor() {",
+      "",
+      "  }",
+      "}",
+      "",
+      "export default ${1:ComponentName}",
+      ""
+    ]
+  }
+}

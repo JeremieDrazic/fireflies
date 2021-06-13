@@ -1,0 +1,16 @@
+{
+  "editor.detectIndentation": false,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "editor.wordWrapColumn": 100,
+  "editor.renderWhitespace": "boundary",
+  "editor.formatOnSave": true,
+  "eslint.format.enable": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "eslint.alwaysShowStatus": true,
+  "files.exclude": {
+    "**/.eslintcache": true
+  },
+  "eslint.validate": ["html", "javascript", "typescript"]
+}
