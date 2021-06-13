@@ -8,6 +8,8 @@ export const FORM_INPUT_WRAPPER = '.form__input-wrapper'
 export const FORM_INPUT = '.form__input'
 export const FORM_INPUT_BORDER = '.form__input-border'
 export const FORM_INSTRUCTIONS = '.form__instructions'
+export const FORM_INSTRUCTIONS_TEXT = '.form__instructions-text'
+export const FORM_INSTRUCTIONS_DECORATION = '.form__instructions-decoration'
 export const FORM_ENTER_KEY = '.form__enter-key'
 export const FORM_ENTER_KEY_DESC = '.form__enter-key-desc'
 

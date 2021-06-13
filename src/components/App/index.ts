@@ -1,7 +1,11 @@
+import { gsap } from 'gsap'
+import { RoughEase } from 'gsap/EasePack'
 import Nav from '@components/Nav'
 import Form from '@components/Form'
 import { NAV, FORM } from '@utils/constants'
 import './index.css'
+
+gsap.registerPlugin(RoughEase)
 
 class App {
   readonly appRoot: HTMLDivElement
