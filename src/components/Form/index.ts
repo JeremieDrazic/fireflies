@@ -40,9 +40,10 @@ class Form {
         !this.formAppearanceAnimation.isActive() &&
         !this.formInstructionsAppearanceAnimation.isActive() &&
         this.input?.value
-      )
+      ) {
         this.formAppearanceAnimation.reverse()
-      this.formInstructionsAppearanceAnimation.reverse()
+        this.formInstructionsAppearanceAnimation.reverse()
+      }
     }
   }
 }
