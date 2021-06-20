@@ -6,7 +6,7 @@ export default {
   },
   build: {
     outDir: 'dist/fireflies',
-    assetsDir: 'dist/fireflies/assets',
+    assetsDir: 'assets',
   },
   resolve: {
     alias: {
