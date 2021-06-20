@@ -10,8 +10,6 @@ import {
 import './index.css'
 
 class Nav {
-  navRoot: ElementType
-
   navLinkEl: ElementType
 
   topToBottomAnimation: GSAPAnimation
@@ -22,9 +20,8 @@ class Nav {
 
   leftToRightAnimation: GSAPAnimation
 
-  constructor(navRoot: ElementType) {
-    this.navRoot = navRoot
-    this.navLinkEl = this.navRoot?.querySelector(NAV_LINK)
+  constructor() {
+    this.navLinkEl = NAV_LINK as ElementType
     this.topToBottomAnimation = topToBottomAnimation
     this.bottomToTopAnimation = bottomToTopAnimation
     this.rightToLeftAnimation = rightToLeftAnimation
@@ -34,7 +31,7 @@ class Nav {
   init = () => {
     this.topToBottomAnimation.play()
     // @ts-ignore
-    this.navRoot?.querySelector(NAV_TITLE)?.addEventListener('mouseenter', this.playTitleAnimation)
+    NAV_TITLE?.addEventListener('mouseenter', this.playTitleAnimation)
   }
 
   playTitleAnimation = (e: MouseEvent) => {

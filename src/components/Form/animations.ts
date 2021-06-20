@@ -23,7 +23,7 @@ export const formAppearanceAnimation = gsap
     duration: 0.3,
     ease: EASE_EXPO,
     onComplete: () => {
-      const input = document.querySelector(FORM_INPUT) as HTMLInputElement
+      const input = FORM_INPUT as HTMLInputElement
       input?.focus()
     },
   })
@@ -42,7 +42,7 @@ export const formInstructionsAppearanceAnimation = gsap
     duration: 0.3,
     ease: EASE_EXPO,
     onComplete: () => {
-      const input = document.querySelector(FORM_INPUT) as HTMLInputElement
+      const input = FORM_INPUT as HTMLInputElement
       input?.focus()
     },
   })
