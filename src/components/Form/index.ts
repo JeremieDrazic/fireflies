@@ -1,4 +1,5 @@
-import { FORM_INPUT, ENTER_KEY } from '@utils/constants'
+import { FORM_INPUT, ENTER_KEY } from 'src/utils/constants'
+import { ElementType } from 'src/utils/types'
 import {
   formAppearanceAnimation,
   enterKeyAnimation,
@@ -8,17 +9,17 @@ import {
 import './index.css'
 
 class Form {
-  readonly formRoot: HTMLElement
+  readonly formRoot: ElementType
 
   formAppearanceAnimation: GSAPAnimation
 
   formInstructionsAppearanceAnimation: GSAPAnimation
 
-  input: HTMLInputElement | null
+  input: HTMLInputElement | null | undefined
 
-  constructor(formRoot: HTMLDivElement) {
+  constructor(formRoot: ElementType) {
     this.formRoot = formRoot
-    this.input = this.formRoot.querySelector(FORM_INPUT)
+    this.input = this.formRoot?.querySelector(FORM_INPUT)
     this.formAppearanceAnimation = formAppearanceAnimation
     this.formInstructionsAppearanceAnimation = formInstructionsAppearanceAnimation
   }
@@ -27,7 +28,7 @@ class Form {
     if (!this.formAppearanceAnimation.isActive()) this.formAppearanceAnimation.restart()
     if (!this.formInstructionsAppearanceAnimation.isActive())
       this.formInstructionsAppearanceAnimation.restart()
-    this.formRoot.addEventListener('keypress', this.onSubmit)
+    this.formRoot?.addEventListener('keypress', this.onSubmit)
     window.addEventListener('keypress', this.onSubmit)
   }
 

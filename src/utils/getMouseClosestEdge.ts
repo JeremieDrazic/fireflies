@@ -3,7 +3,7 @@ export const LEFT = 'left'
 export const TOP = 'top'
 export const BOTTOM = 'bottom'
 
-type ElementSide = typeof RIGHT | typeof LEFT | typeof TOP | typeof BOTTOM
+export type ElementSide = typeof RIGHT | typeof LEFT | typeof TOP | typeof BOTTOM
 type MousePositionArg = { x: number; y: number }
 
 const getMouseClosestEdge = (

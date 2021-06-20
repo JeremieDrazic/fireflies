@@ -7,7 +7,7 @@ import {
   FORM_ENTER_KEY,
   FORM_INSTRUCTIONS_DECORATION,
   FORM_INSTRUCTIONS_TEXT,
-} from '@utils/constants'
+} from 'src/utils/constants'
 
 export const formAppearanceAnimation = gsap
   .timeline({ paused: true })
@@ -22,7 +22,10 @@ export const formAppearanceAnimation = gsap
     scaleY: 0.02,
     duration: 0.3,
     ease: EASE_EXPO,
-    onComplete: () => document.querySelector(FORM_INPUT).focus(),
+    onComplete: () => {
+      const input = document.querySelector(FORM_INPUT) as HTMLInputElement
+      input?.focus()
+    },
   })
 
 export const formInstructionsAppearanceAnimation = gsap
@@ -38,7 +41,10 @@ export const formInstructionsAppearanceAnimation = gsap
     scaleY: 0,
     duration: 0.3,
     ease: EASE_EXPO,
-    onComplete: () => document.querySelector(FORM_INPUT).focus(),
+    onComplete: () => {
+      const input = document.querySelector(FORM_INPUT) as HTMLInputElement
+      input?.focus()
+    },
   })
 
 export const enterKeyAnimation = gsap

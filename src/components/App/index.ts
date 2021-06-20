@@ -1,23 +1,24 @@
 import { gsap } from 'gsap'
 import { RoughEase } from 'gsap/EasePack'
-import Nav from '@components/Nav'
-import Form from '@components/Form'
-import { NAV, FORM } from '@utils/constants'
+import Nav from 'src/components/Nav'
+import Form from 'src/components/Form'
+import { NAV, FORM } from 'src/utils/constants'
+import { ElementType } from 'src/utils/types'
 import './index.css'
 
 gsap.registerPlugin(RoughEase)
 
 class App {
-  readonly appRoot: HTMLDivElement
+  readonly appRoot: ElementType
 
-  readonly navEl: HTMLElement | null
+  readonly navEl: ElementType
 
-  readonly formEl: HTMLDivElement | null
+  readonly formEl: ElementType
 
-  constructor(appRoot: HTMLDivElement) {
+  constructor(appRoot: ElementType) {
     this.appRoot = appRoot
-    this.navEl = appRoot.querySelector(NAV)
-    this.formEl = appRoot.querySelector(FORM)
+    this.navEl = appRoot?.querySelector(NAV)
+    this.formEl = appRoot?.querySelector(FORM)
   }
 
   start = () => {

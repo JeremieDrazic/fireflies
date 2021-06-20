@@ -30,6 +30,7 @@ module.exports = {
       'error',
       'never',
       {
+        css: 'always',
         json: 'always',
         png: 'always',
         svg: 'always',
