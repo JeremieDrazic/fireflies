@@ -1,5 +1,6 @@
-import { NAV_TITLE, NAV_LINK } from '@utils/constants'
-import getMouseClosestEdge, { LEFT, TOP, RIGHT } from '@utils/getMouseClosestEdge'
+import { NAV_TITLE, NAV_LINK } from 'src/utils/constants'
+import getMouseClosestEdge, { LEFT, TOP, RIGHT, ElementSide } from 'src/utils/getMouseClosestEdge'
+import { ElementType } from 'src/utils/types'
 import {
   topToBottomAnimation,
   bottomToTopAnimation,
@@ -9,9 +10,9 @@ import {
 import './index.css'
 
 class Nav {
-  navRoot: HTMLElement
+  navRoot: ElementType
 
-  navLinkEl: HTMLElement
+  navLinkEl: ElementType
 
   topToBottomAnimation: GSAPAnimation
 
@@ -21,9 +22,9 @@ class Nav {
 
   leftToRightAnimation: GSAPAnimation
 
-  constructor(navRoot: HTMLElement) {
+  constructor(navRoot: ElementType) {
     this.navRoot = navRoot
-    this.navLinkEl = this.navRoot.querySelector(NAV_LINK)
+    this.navLinkEl = this.navRoot?.querySelector(NAV_LINK)
     this.topToBottomAnimation = topToBottomAnimation
     this.bottomToTopAnimation = bottomToTopAnimation
     this.rightToLeftAnimation = rightToLeftAnimation
@@ -32,12 +33,13 @@ class Nav {
 
   init = () => {
     this.topToBottomAnimation.play()
-    this.navRoot.querySelector(NAV_TITLE)?.addEventListener('mouseenter', this.playTitleAnimation)
+    // @ts-ignore
+    this.navRoot?.querySelector(NAV_TITLE)?.addEventListener('mouseenter', this.playTitleAnimation)
   }
 
-  playTitleAnimation = (e?: MouseEvent) => {
+  playTitleAnimation = (e: MouseEvent) => {
     let animation: GSAPAnimation = bottomToTopAnimation
-    const side = getMouseClosestEdge(this.navLinkEl, { x: e?.clientX, y: e?.clientY })
+    const side: ElementSide = getMouseClosestEdge(this.navLinkEl, { x: e?.clientX, y: e?.clientY })
     const noAnimationRunning =
       !this.topToBottomAnimation.isActive() &&
       !this.bottomToTopAnimation.isActive() &&

@@ -6,9 +6,7 @@ export default {
   },
   resolve: {
     alias: {
-      '@utils': path.resolve(__dirname, './src/utils'),
-      '@styles': path.resolve(__dirname, './src/styles'),
-      '@components': path.resolve(__dirname, 'src/components'),
+      src: path.resolve(__dirname, './src'),
     },
   },
 }
