@@ -5,7 +5,7 @@ export default {
     open: true,
   },
   build: {
-    outDir: 'dist/fireflies',
+    outDir: 'dist',
     assetsDir: 'assets',
   },
   resolve: {
