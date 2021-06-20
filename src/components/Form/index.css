@@ -35,8 +35,8 @@
   outline: none;
 }
 
-.form__input:placeholder {
-  color: rgba(var(--secondary), 0.5);
+.form__input::placeholder {
+  color: #f2ca5250;
 }
 
 .form__input-border {
