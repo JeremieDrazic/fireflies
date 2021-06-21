@@ -1,13 +1,13 @@
 import { gsap } from 'gsap'
+import { EASE_EXPO } from 'src/utils/constants'
 import {
   FORM_INPUT,
   FORM_INPUT_WRAPPER,
   FORM_INPUT_BORDER,
-  EASE_EXPO,
   FORM_ENTER_KEY,
   FORM_INSTRUCTIONS_DECORATION,
   FORM_INSTRUCTIONS_TEXT,
-} from 'src/utils/constants'
+} from './constants'
 
 export const formAppearanceAnimation = gsap
   .timeline({ paused: true })

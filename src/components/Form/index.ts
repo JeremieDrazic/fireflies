@@ -1,11 +1,12 @@
-import { FORM_INPUT, ENTER_KEY, FORM } from 'src/utils/constants'
+import { ENTER_KEY } from 'src/utils/constants'
 import { ElementType } from 'src/utils/types'
 import {
   formAppearanceAnimation,
   enterKeyAnimation,
   noValueInputAnimation,
   formInstructionsAppearanceAnimation,
-} from './animations'
+} from './utils/animations'
+import { FORM_INPUT, FORM } from './utils/constants'
 import './index.css'
 
 class Form {

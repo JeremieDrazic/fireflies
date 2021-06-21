@@ -1,5 +1,6 @@
 import gsap from 'gsap'
-import { NAV_DECORATION, EASE_EXPO } from 'src/utils/constants'
+import { EASE_EXPO } from 'src/utils/constants'
+import { NAV_DECORATION } from './constants'
 
 export const topToBottomAnimation = gsap
   .timeline({ paused: true })
