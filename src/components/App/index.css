@@ -19,6 +19,14 @@
   background-color: var(--primary);
 }
 
+.app__inner {
+  position: relative;
+  z-index: 10;
+
+  width: 100vw;
+  height: 100vh;
+}
+
 ::selection {
   color: var(--primary);
   background-color: var(--secondary);
