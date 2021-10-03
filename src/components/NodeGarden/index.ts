@@ -19,6 +19,7 @@ class NodeGarden {
 
   nodes: ExtendedSprite[] = []
 
+  // @ts-ignore
   nodeBounds: Rectangle
 
   tick = 0
