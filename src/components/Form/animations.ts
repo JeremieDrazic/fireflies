@@ -1,13 +1,14 @@
 import { gsap } from 'gsap'
 import { EASE_EXPO } from 'src/utils/constants'
 import {
+  STAGE,
   FORM_INPUT,
   FORM_INPUT_WRAPPER,
   FORM_INPUT_BORDER,
   FORM_ENTER_KEY,
   FORM_INSTRUCTIONS_DECORATION,
   FORM_INSTRUCTIONS_TEXT,
-} from './constants'
+} from 'src/utils/appNodes'
 
 export const formAppearanceAnimation = gsap
   .timeline({ paused: true })
@@ -27,6 +28,26 @@ export const formAppearanceAnimation = gsap
       input?.focus()
     },
   })
+
+export const formDisappearanceAnimation: (stage: any) => GSAPAnimation = (stage) =>
+  gsap
+    .timeline({ paused: true })
+    .to(FORM_INPUT_BORDER, {
+      scaleY: 1,
+      duration: 0.3,
+      ease: EASE_EXPO,
+      onComplete: () => {
+        stage.addParticles()
+      },
+    })
+    .set(FORM_INPUT_BORDER, { transformOrigin: 'center top' })
+    .set(STAGE, { opacity: 1 })
+    .set(FORM_INPUT, { display: 'none' })
+    .to(FORM_INPUT_BORDER, {
+      scaleY: 0,
+      duration: 0.3,
+      ease: EASE_EXPO,
+    })
 
 export const formInstructionsAppearanceAnimation = gsap
   .timeline({ paused: true })
