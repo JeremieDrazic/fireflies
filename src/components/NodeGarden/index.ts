@@ -1,8 +1,10 @@
 import { Application, ParticleContainer, Sprite, Rectangle } from 'pixi.js'
 import { BG_COLOR } from 'src/utils/constants'
+import { NODE_GARDEN } from 'src/utils/appNodes'
 import nodeTexture from './node.png'
-import { NODE_GARDEN, NB_NODES } from './utils/constants'
 import './index.css'
+
+export const NB_NODES = 150
 
 type ExtendedSprite = Sprite & {
   direction: number
@@ -16,6 +18,8 @@ class NodeGarden {
   nodeContainer: ParticleContainer
 
   nodes: ExtendedSprite[] = []
+
+  nodeBounds: Rectangle
 
   tick = 0
 
@@ -43,12 +47,29 @@ class NodeGarden {
   init = () => {
     NODE_GARDEN?.appendChild(this.nodeGarden.view)
     this.nodeGarden.stage.addChild(this.nodeContainer)
+
     this.addNodes()
+    this.animate()
+
     window.addEventListener('resize', this.setNodeGardenSize)
+    window.addEventListener('keypress', this.fadeAway)
   }
 
   setNodeGardenSize = () => {
     this.nodeGarden.resize()
+  }
+
+  fadeAway = () => {
+    this.nodeGarden.ticker.add(() => {
+      // iterate through the sprites and update their position
+      for (let k = 0; k < this.nodes.length; k += 1) {
+        const firefly = this.nodes[k]
+        if (firefly.alpha > 0) firefly.alpha -= 0.1
+      }
+
+      // increment the ticker
+      this.tick += 0.1
+    })
   }
 
   addNodes = () => {
@@ -85,13 +106,15 @@ class NodeGarden {
     }
 
     const nodeBoundsPadding = 8
-    const nodeBounds = new Rectangle(
+    this.nodeBounds = new Rectangle(
       -nodeBoundsPadding,
       -nodeBoundsPadding,
       this.nodeGarden.screen.width + nodeBoundsPadding * 2,
       this.nodeGarden.screen.height + nodeBoundsPadding * 2,
     )
+  }
 
+  animate = () => {
     this.nodeGarden.ticker.add(() => {
       // iterate through the sprites and update their position
       for (let k = 0; k < this.nodes.length; k += 1) {
@@ -101,17 +124,17 @@ class NodeGarden {
         firefly.y += Math.cos(firefly.direction) * (firefly.speed * firefly.scale.y)
         firefly.rotation = -firefly.direction + Math.PI
 
-        // wrap the this.nodes
-        if (firefly.x < nodeBounds.x) {
-          firefly.x += nodeBounds.width
-        } else if (firefly.x > nodeBounds.x + nodeBounds.width) {
-          firefly.x -= nodeBounds.width
+        // wrap the nodes
+        if (firefly.x < this.nodeBounds.x) {
+          firefly.x += this.nodeBounds.width
+        } else if (firefly.x > this.nodeBounds.x + this.nodeBounds.width) {
+          firefly.x -= this.nodeBounds.width
         }
 
-        if (firefly.y < nodeBounds.y) {
-          firefly.y += nodeBounds.height
-        } else if (firefly.y > nodeBounds.y + nodeBounds.height) {
-          firefly.y -= nodeBounds.height
+        if (firefly.y < this.nodeBounds.y) {
+          firefly.y += this.nodeBounds.height
+        } else if (firefly.y > this.nodeBounds.y + this.nodeBounds.height) {
+          firefly.y -= this.nodeBounds.height
         }
       }
 

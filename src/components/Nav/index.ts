@@ -1,12 +1,12 @@
 import getMouseClosestEdge, { LEFT, TOP, RIGHT, ElementSide } from 'src/utils/getMouseClosestEdge'
 import { ElementType } from 'src/utils/types'
+import { NAV_TITLE, NAV_LINK } from 'src/utils/appNodes'
 import {
   topToBottomAnimation,
   bottomToTopAnimation,
   leftToRightAnimation,
   rightToLeftAnimation,
-} from './utils/animations'
-import { NAV_TITLE, NAV_LINK } from './utils/constants'
+} from './animations'
 import './index.css'
 
 class Nav {
