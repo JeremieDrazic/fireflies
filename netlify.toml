@@ -11,6 +11,7 @@
   status  = 200
 
 [[redirects]]
-  from    = "/*"
+  from    = "/"
   to      = "https://jerem.xyz/fireflies"
   status  = 200
+  force   = true
