@@ -9,3 +9,7 @@
   from    = "/fireflies"
   to      = "/index.html"
   status  = 200
+
+[[redirects]]
+  from    = "/"
+  status  = 404
