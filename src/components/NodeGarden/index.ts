@@ -25,6 +25,7 @@ class NodeGarden {
   tick = 0
 
   constructor() {
+    console.log('hello')
     const width = window.innerWidth
     const height = window.innerHeight
     this.nodeGarden = new Application({
