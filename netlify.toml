@@ -6,6 +6,6 @@
   NETLIFY_USE_YARN = "true"
 
 [[redirects]]
-  from    = "/*"
+  from    = "/fireflies"
   to      = "/index.html"
   status  = 200
