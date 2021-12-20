@@ -42,10 +42,6 @@ class Stage {
     window.addEventListener('resize', this.setStageSize)
   }
 
-  setStageSize = () => {
-    this.stage.resize()
-  }
-
   public addParticles = () => {
     let i = 0
     for (i; i < this.particles.length; i += 1) {
@@ -54,22 +50,40 @@ class Stage {
     }
   }
 
+  public animate = () => {
+    requestAnimationFrame(this.animate)
+    const nbParticles = this.particles.length
+    let i = 0
+
+    for (i; i < nbParticles; i += 1) {
+      this.particles[i].animateInactiveParticleState()
+    }
+
+    this.stage.render()
+  }
+
+  setStageSize = () => {
+    this.stage.resize()
+  }
+
   turnWordToParticles = () => {
     const gohstCanvasEl: CanvasElementType = document.createElement('canvas')
-    gohstCanvasEl!.width = window.innerWidth
-    gohstCanvasEl!.height = window.innerHeight
+    if (!gohstCanvasEl) return
+    gohstCanvasEl.width = window.innerWidth
+    gohstCanvasEl.height = window.innerHeight
 
     const ctx: CanvasContextType = gohstCanvasEl!.getContext('2d')
-    ctx!.beginPath()
-    ctx!.fillStyle = '#ffffff'
-    ctx!.font = "900 9vw 'Poppins', sans-serif"
-    ctx!.textAlign = 'center'
-    ctx!.fillText(this.word, gohstCanvasEl!.width / 2, gohstCanvasEl!.height / 2)
-    ctx!.closePath()
+    if (!ctx) return
+    ctx.beginPath()
+    ctx.fillStyle = '#ffffff'
+    ctx.font = "900 9vw 'Poppins', sans-serif"
+    ctx.textAlign = 'center'
+    ctx.fillText(this.word, gohstCanvasEl!.width / 2, gohstCanvasEl!.height / 2)
+    ctx.closePath()
 
-    const imageData = ctx!.getImageData(0, 0, gohstCanvasEl!.width, gohstCanvasEl!.height)
+    const imageData = ctx.getImageData(0, 0, gohstCanvasEl!.width, gohstCanvasEl!.height)
     const { data } = imageData
-    ctx!.clearRect(0, 0, gohstCanvasEl!.width, gohstCanvasEl!.height)
+    ctx.clearRect(0, 0, gohstCanvasEl!.width, gohstCanvasEl!.height)
 
     for (let y = 0; y < gohstCanvasEl!.height; y += 1) {
       for (let x = 0; x < gohstCanvasEl!.width; x += 1) {
@@ -80,18 +94,6 @@ class Stage {
         }
       }
     }
-  }
-
-  animate = () => {
-    requestAnimationFrame(this.animate)
-    const nbParticles = this.particles.length
-    let i = 0
-
-    for (i; i < nbParticles; i += 1) {
-      this.particles[i].animateInactiveParticleState()
-    }
-
-    this.stage.render()
   }
 }
 

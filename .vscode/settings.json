@@ -1,16 +1,17 @@
 {
-  "editor.detectIndentation": false,
-  "editor.insertSpaces": true,
-  "editor.tabSize": 2,
+  "workbench.startupEditor": "none",
+  "editor.fontSize": 14,
   "editor.wordWrap": "on",
   "editor.wordWrapColumn": 100,
-  "editor.renderWhitespace": "boundary",
   "editor.formatOnSave": true,
-  "eslint.format.enable": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "eslint.alwaysShowStatus": true,
-  "files.exclude": {
-    "**/.eslintcache": true
-  },
-  "eslint.validate": ["html", "javascript", "typescript"]
+  "editor.multiCursorModifier": "ctrlCmd",
+  "editor.minimap.enabled": false,
+  "editor.tabSize": 2,
+  "editor.renderWhitespace": "all",
+  "editor.detectIndentation": false,
+  "explorer.confirmDragAndDrop": false,
+  "prettier.trailingComma": "none",
+  "javascript.suggestionActions.enabled": false,
+  "typescript.suggestionActions.enabled": false
 }

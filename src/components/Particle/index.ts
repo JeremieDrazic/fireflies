@@ -17,18 +17,6 @@ class Particle {
 
   timer: number = Math.floor(Math.random() * (100 - 0) + 0)
 
-  startAngle: number = Math.random()
-
-  multiplierX: number = Math.random() * 5
-
-  multiplierY: number = Math.random() * 5
-
-  increment: number = Math.random() / 10
-
-  velX: number = Math.random() * 20
-
-  velY: number = Math.random() * 10
-
   v: number = (Math.random() < 0.5 ? -1 : 1) * (Math.random() * (1 - 0.5) + 0.5)
 
   constructor(x: number, y: number) {
